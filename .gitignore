@@ -6,7 +6,6 @@
 *.pot
 *.pyc
 local_settings.py
-local.py
 db.sqlite3
 db.sqlite3-journal
 media
@@ -16,7 +15,6 @@ datacaches
 __pycache__/
 .virtualenv/*
 /.virtualenv
-manage.py
 
 ### SETTINGS FILES###
 settings_local_pgsql.py
@@ -99,7 +97,6 @@ docs/_build/
 target/
 
 # pyenv
-.python-version
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
@@ -336,3 +333,10 @@ pip-selfcheck.json
 .history
 
 # End of https://www.gitignore.io/api/python,django,jetbrains,virtualenv,sublimetext,visualstudiocode
+
+### uv / env ###
+.venv
+.env
+.pytest_cache
+.ruff_cache
+.DS_Store

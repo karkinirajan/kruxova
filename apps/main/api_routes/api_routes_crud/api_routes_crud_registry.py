@@ -26,13 +26,9 @@ def register_routes(param_global_router):
     # APP_MAIN MODELS CRUD(DEFAULT) ROUTES
     # ********************************************************************************
 
-    param_global_router.register(
-        r"group", api_routes_crud_viewsets.GroupViewSet, "Group"
-    )
+    param_global_router.register(r"group", api_routes_crud_viewsets.GroupViewSet, "Group")
 
-    param_global_router.register(
-        r"location", api_routes_crud_viewsets.LocationViewSet, "Location"
-    )
+    param_global_router.register(r"location", api_routes_crud_viewsets.LocationViewSet, "Location")
 
     param_global_router.register(
         r"location_hierarchy_level",
@@ -44,9 +40,7 @@ def register_routes(param_global_router):
         r"valuetypes", api_routes_crud_viewsets.ValueTypeViewSet, "ValueTypes"
     )
 
-    param_global_router.register(
-        r"factors", api_routes_crud_viewsets.FactorViewSet, "Factors"
-    )
+    param_global_router.register(r"factors", api_routes_crud_viewsets.FactorViewSet, "Factors")
 
     param_global_router.register(
         r"datasources", api_routes_crud_viewsets.DatasourceViewSet, "Datasources"
@@ -80,9 +74,7 @@ def register_routes(param_global_router):
         "IndicatorValuetypes",
     )
 
-    param_global_router.register(
-        r"links", api_routes_crud_viewsets.LinkViewSet, "Links"
-    )
+    param_global_router.register(r"links", api_routes_crud_viewsets.LinkViewSet, "Links")
 
     param_global_router.register(r"data", api_routes_crud_viewsets.DataViewSet, "Data")
 

@@ -1,6 +1,6 @@
 [
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 1,
         "fields": {
             "full_name": "Total fertility rate",
@@ -23,7 +23,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 2,
         "fields": {
             "full_name": "Adolescent birth rate",
@@ -46,7 +46,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 3,
         "fields": {
             "full_name": "Unmet need for family planning",
@@ -69,7 +69,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 4,
         "fields": {
             "full_name": "Contraceptive prevalence rate",
@@ -92,7 +92,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 5,
         "fields": {
             "full_name": "ANC Coverage (at least 1 visit)",
@@ -115,7 +115,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 6,
         "fields": {
             "full_name": "ANC Coverage (4 visits)",
@@ -138,7 +138,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 7,
         "fields": {
             "full_name": "Skilled attendance at delivery or birth",
@@ -161,7 +161,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 8,
         "fields": {
             "full_name": "Postnatal care coverage (mother)",
@@ -184,7 +184,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 9,
         "fields": {
             "full_name": "Prevalence of children with diarrhoea",
@@ -207,7 +207,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 10,
         "fields": {
             "full_name": "Percentage of children with diarrhoea who received treatment",
@@ -230,7 +230,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 11,
         "fields": {
             "full_name": "Prevalence of Symptoms of Acute Respiratory Infection among under five children",
@@ -253,7 +253,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 12,
         "fields": {
             "full_name": "Proportion of children under 5 with ARI who received antibiotics",
@@ -276,7 +276,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 13,
         "fields": {
             "full_name": "Percentage of children under 6 months who were exclusively breastfed",
@@ -299,7 +299,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 14,
         "fields": {
             "full_name": "Prevalence of stunting among under 5 children",
@@ -322,7 +322,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 15,
         "fields": {
             "full_name": "Prevalence of wasting among under 5 children",
@@ -345,7 +345,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 16,
         "fields": {
             "full_name": "Underweight prevalence among under 5 children",
@@ -368,7 +368,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 17,
         "fields": {
             "full_name": "Vitamin A supplementation coverage",
@@ -391,7 +391,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 18,
         "fields": {
             "full_name": "DPT 3/Penta 3 coverage rate",
@@ -414,7 +414,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 19,
         "fields": {
             "full_name": "IPV coverage rate",
@@ -437,7 +437,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 20,
         "fields": {
             "full_name": "Measles Immunization Coverage",
@@ -460,7 +460,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 21,
         "fields": {
             "full_name": "Percentage of children fully immunized against childhood diseases by age 1",
@@ -483,7 +483,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 22,
         "fields": {
             "full_name": "Percentage of women age 15-49 years who received at least one IPT dose during pregnancy",
@@ -506,7 +506,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 23,
         "fields": {
             "full_name": "Percentage of women age 15-49 years who received at least two or more IPT doses during pregnancy",
@@ -529,7 +529,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 24,
         "fields": {
             "full_name": "Prevalence of malaria among under five children (microscopy positive)",
@@ -552,7 +552,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 25,
         "fields": {
             "full_name": "Percentage of children under 5 with fever who received ACT",
@@ -575,7 +575,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 26,
         "fields": {
             "full_name": "Prevalence of HIV",
@@ -598,7 +598,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 27,
         "fields": {
             "full_name": "Percentage of people age 15-49 years who have been tested for HIV and know their results",
@@ -621,7 +621,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 28,
         "fields": {
             "full_name": "Percentage of pregnant women tested for HIV during antenatal care",
@@ -644,7 +644,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 29,
         "fields": {
             "full_name": "Maternal Mortality Ratio",
@@ -667,7 +667,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 30,
         "fields": {
             "full_name": "Neonatal mortality rate (per 1000 live births)",
@@ -690,7 +690,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 31,
         "fields": {
             "full_name": "Infant Mortality rate",
@@ -713,7 +713,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 32,
         "fields": {
             "full_name": "Under 5 Mortality rate",
@@ -736,7 +736,7 @@
         }
     },
     {
-        "model": "apps.main.Indicator",
+        "model": "main.Indicator",
         "pk": 33,
         "fields": {
             "full_name": "Pregnancy-related mortality ratio",

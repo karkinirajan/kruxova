@@ -1,15 +1,16 @@
-#*****************************************
-#IMPORTs python
-#*****************************************
+# *****************************************
+# IMPORTs python
+# *****************************************
 
-#*****************************************
-#IMPORTs django
-#*****************************************
+# *****************************************
+# IMPORTs django
+# *****************************************
 
-#*****************************************
-#IMPORTs app
-#*****************************************
+# *****************************************
+# IMPORTs app
+# *****************************************
 from apps.dmi.api_routes.api_routes_crud import api_routes_crud_viewsets
+
 
 def register_routes(param_global_router):
     """
@@ -20,8 +21,4 @@ def register_routes(param_global_router):
     Returns:
         :rtype:void
     """
-    param_global_router.register(
-        r'data', 
-        api_routes_crud_viewsets.DataViewSet, 
-        'Data'
-    )
+    param_global_router.register(r"data", api_routes_crud_viewsets.DataViewSet, "Data")

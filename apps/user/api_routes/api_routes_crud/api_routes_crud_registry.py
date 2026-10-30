@@ -1,15 +1,16 @@
-#*****************************************
-#IMPORTs python
-#*****************************************
+# *****************************************
+# IMPORTs python
+# *****************************************
 
-#*****************************************
-#IMPORTs django
-#*****************************************
+# *****************************************
+# IMPORTs django
+# *****************************************
 
-#*****************************************
-#IMPORTs app
-#*****************************************
+# *****************************************
+# IMPORTs app
+# *****************************************
 from apps.user.api_routes.api_routes_crud import api_routes_crud_viewsets
+
 
 def register_routes(param_global_router):
     """
@@ -21,13 +22,9 @@ def register_routes(param_global_router):
         :rtype:void
     """
     # param_global_router.register(
-    #     r'user', 
-    #     api_routes_crud_viewsets.UserViewSet, 
+    #     r'user',
+    #     api_routes_crud_viewsets.UserViewSet,
     #     'User'
     # )
 
-    param_global_router.register(
-        r'contact', 
-        api_routes_crud_viewsets.ContactViewSet, 
-        'Contact'
-    )
+    param_global_router.register(r"contact", api_routes_crud_viewsets.ContactViewSet, "Contact")

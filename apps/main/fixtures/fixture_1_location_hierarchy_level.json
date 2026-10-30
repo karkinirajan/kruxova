@@ -1,6 +1,6 @@
 [
     {
-        "model": "apps.main.LocationHierarchyLevel",
+        "model": "main.LocationHierarchyLevel",
         "pk": 1,
         "fields": {
             "name": "Countries",
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "apps.main.LocationHierarchyLevel",
+        "model": "main.LocationHierarchyLevel",
         "pk": 2,
         "fields": {
             "name": "Zones",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "apps.main.LocationHierarchyLevel",
+        "model": "main.LocationHierarchyLevel",
         "pk": 3,
         "fields": {
             "name": "States",
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "apps.main.LocationHierarchyLevel",
+        "model": "main.LocationHierarchyLevel",
         "pk": 4,
         "fields": {
             "name": "LGAs",
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "apps.main.LocationHierarchyLevel",
+        "model": "main.LocationHierarchyLevel",
         "pk": 5,
         "fields": {
             "name": "SenDistricts",

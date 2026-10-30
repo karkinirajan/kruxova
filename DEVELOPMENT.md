@@ -24,36 +24,31 @@ The project is part of the **MSDAT (Multi-Sectoral Data Analytics Tool)** ecosys
 ## 3. Technology Stack (Comprehensive List)
 | Component | Technology | Version | Description |
 | :--- | :--- | :--- | :--- |
-| **Backend Framework** | Django | 6.0.2 | Core application engine. |
-| **API Framework** | Django REST Framework | 3.16.1 | RESTful interface for all data services. |
-| **Language** | Python | 3.14+ | High-level programming for all logic. |
+| **Backend Framework** | Django | 5.2 LTS | Core application engine. |
+| **API Framework** | Django REST Framework | 3.18 | RESTful interface for all data services. |
+| **Language** | Python | 3.13+ | High-level programming for all logic. |
 | **Database (Primary)** | PostgreSQL | 16+ | Relational storage for production data. |
 | **Database (Dev)** | SQLite | 3.x | Lightweight storage for local development. |
-| **Task Queue** | Celery | 5.6.2 | Handles background and scheduled tasks. |
-| **Message Broker** | Redis | 7.2.0 | High-speed broker for Celery and caching. |
-| **Search Engine** | Elasticsearch | 8.x | (Optional) Advanced full-text search. |
-| **Documentation** | drf-yasg | 1.21.x | Auto-generates Swagger/OpenAPI docs. |
+| **Task Queue** | Celery | 5.6 | Handles background and scheduled tasks. |
+| **Message Broker** | Redis | 7+ | Broker for Celery. |
+| **Documentation** | drf-yasg | 1.21 | Auto-generates Swagger/OpenAPI docs. |
 | **CORS Management** | django-cors-headers| 4.9.0 | Manages Cross-Origin Resource Sharing. |
-| **Filtering** | django-filter | 25.2 | Dynamic query filtering for API endpoints. |
+| **Filtering** | django-filter | 26.2 | Dynamic query filtering for API endpoints. |
 
 ---
 
 ## 4. Requirements & Environment Setup
 
 ### Prerequisites
-*   Python 3.14 or higher
+*   Python 3.13 or higher and [uv](https://docs.astral.sh/uv/)
 *   PostgreSQL (Staging/Production)
-*   Redis (Required for Celery tasks and production caching)
-*   Elasticsearch (Optional, for advanced search capabilities)
+*   Redis (Required for the Celery cache-refresh task)
+*   memcached (Optional, for Django's cache; without it an in-process cache is used)
 
 ### Installation
 1.  **Clone the Repo**: `git clone <repo_url>`
-2.  **Virtual Env**: `python -m venv venv && source venv/bin/activate`
-3.  **Dependencies**: `pip install -r requirements.txt`
-4.  **Environment Marking**: Use the provided scripts to set the `E4E_ENVVAR_MSDATAPI_ENV` variable:
-    *   `source script_bash_mark_as_local.sh` (Local/SQLite)
-    *   `source script_bash_mark_as_staging.sh` (Staging/PostgreSQL)
-    *   `source script_bash_mark_as_production.sh` (Production/PostgreSQL)
+2.  **Dependencies**: `uv sync` (creates `.venv` from `uv.lock`)
+3.  **Configuration**: all settings come from environment variables; `.env.example` lists them with demo values. For local work `export DJANGO_DEBUG=true` is enough (SQLite, dev secret key). In production set `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS` and `DATABASE_URL`; the app refuses to start without a secret key when `DJANGO_DEBUG` is off.
 
 ---
 
@@ -149,22 +144,23 @@ All API routes are prefixed with `/api/`.
 ## 8. Build & Deployment
 
 ### Development Workflow
-1.  Mark environment as local.
-2.  Run migrations: `python manage.py migrate`.
-3.  Load seed data: `bash script_load_data.sh`.
-4.  Start server: `python manage.py runserver`.
+1.  `export DJANGO_DEBUG=true`
+2.  Run migrations: `uv run python manage.py migrate`.
+3.  Load seed data: `uv run bash script_load_data.sh`.
+4.  Start server: `uv run python manage.py runserver`.
+5.  Run the tests: `uv run pytest -q`.
 
 ### Production Deployment
 *   **Server**: Gunicorn/Uvicorn behind Nginx.
 *   **Tasks**: Celery worker must be running (`./script_start_celery.sh`).
-*   **Caching**: Redis should be configured in `core/settings/production.py`.
-*   **Environment**: Ensure `E4E_ENVVAR_MSDATAPI_ENV` is set to `ENV_PRO_SERVER_PGSQL`.
+*   **Caching**: set `MEMCACHED_LOCATION` to use memcached for Django's cache; the file caches under `MEDIA_ROOT` are independent of it.
+*   **Environment**: set `DJANGO_DEBUG=false`, `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS`, `DJANGO_CSRF_TRUSTED_ORIGINS`, `DATABASE_URL` and `CELERY_BROKER_URL`; run `migrate` and `collectstatic --noinput`.
 
 ---
 
 ## 9. Optimization & Maintenance
 *   **Caching Strategy**: Uses `apps.data_caches` to pre-calculate and store heavy query results.
-*   **Audit Trail**: Every request is logged via `apps.event_trail.middleware.TrailRequests`.
+*   **Audit Trail**: Every authenticated `POST`/`PUT`/`PATCH`/`DELETE` request is logged via `apps.event_trail.middleware.TrailRequests` (route, method, a safe subset of request headers, form field names and the response status; never the `Authorization` header, cookies or field values).
 *   **Data Matching**: Management command `indicator_datasource_matching` helps maintain data integrity across sources.
 
 ---

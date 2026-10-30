@@ -1,6 +1,6 @@
 [
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 1,
         "fields": {
             "datasource": "MICS",
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 2,
         "fields": {
             "datasource": "NDHS",
@@ -32,7 +32,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 3,
         "fields": {
             "datasource": "NARHS",
@@ -48,7 +48,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 4,
         "fields": {
             "datasource": "NMIS",
@@ -64,7 +64,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 5,
         "fields": {
             "datasource": "NNHS",
@@ -80,7 +80,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 6,
         "fields": {
             "datasource": "NHMIS",
@@ -96,7 +96,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 7,
         "fields": {
             "datasource": "World Bank",
@@ -112,7 +112,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 8,
         "fields": {
             "datasource": "IHME",
@@ -128,7 +128,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 9,
         "fields": {
             "datasource": "WHO-GHO",
@@ -144,7 +144,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 10,
         "fields": {
             "datasource": "WUENIC",
@@ -160,7 +160,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 11,
         "fields": {
             "datasource": "PCCS",
@@ -176,7 +176,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 12,
         "fields": {
             "datasource": "UNAIDS",
@@ -192,7 +192,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 13,
         "fields": {
             "datasource": "NHSPSS",
@@ -208,7 +208,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 14,
         "fields": {
             "datasource": "NHA",
@@ -224,7 +224,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 15,
         "fields": {
             "datasource": "KDGHS",
@@ -240,7 +240,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 16,
         "fields": {
             "datasource": "NAIIS",
@@ -256,7 +256,7 @@
         }
     },
     {
-        "model": "apps.main.Datasource",
+        "model": "main.Datasource",
         "pk": 17,
         "fields": {
             "datasource": "NHFS",

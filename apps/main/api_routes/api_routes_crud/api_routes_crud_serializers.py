@@ -11,8 +11,6 @@ from rest_framework import serializers
 # IMPORTs app
 # *****************************************
 from apps.main import models as main_models
-from apps.subdashboard import models as subdashboard_models
-from apps.user import models as user_models
 from django.contrib.auth import get_user_model
 
 # ********************************************************************************
@@ -121,6 +119,20 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         fields = ["first_name", "last_name", "username", "email", "password"]
+        # the stored hash must never be serialised back to a client
+        extra_kwargs = {"password": {"write_only": True}}
+
+    def create(self, validated_data):
+        # create_user hashes the password; a plain ModelSerializer would store it as clear text
+        return UserModel.objects.create_user(**validated_data)
+
+    def update(self, instance, validated_data):
+        password = validated_data.pop("password", None)
+        instance = super().update(instance, validated_data)
+        if password:
+            instance.set_password(password)
+            instance.save()
+        return instance
 
 
 class DashboardSerializer(serializers.ModelSerializer):

@@ -1,6 +1,6 @@
 [
     {
-        "model": "apps.main.Factor",
+        "model": "main.Factor",
         "pk": 1,
         "fields": {
             "multiplier_factor": 1000,
@@ -10,7 +10,7 @@
         }
     },
     {
-        "model": "apps.main.Factor",
+        "model": "main.Factor",
         "pk": 2,
         "fields": {
             "multiplier_factor": 100,
@@ -20,7 +20,7 @@
         }
     },
     {
-        "model": "apps.main.Factor",
+        "model": "main.Factor",
         "pk": 4,
         "fields": {
             "multiplier_factor": 1,
@@ -30,7 +30,7 @@
         }
     },
     {
-        "model": "apps.main.Factor",
+        "model": "main.Factor",
         "pk": 3,
         "fields": {
             "multiplier_factor": 100000,

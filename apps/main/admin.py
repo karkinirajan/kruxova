@@ -1,21 +1,20 @@
-#*****************************************
-#IMPORTs python
-#*****************************************
-import os
+# *****************************************
+# IMPORTs python
+# *****************************************
 
-#*****************************************
-#IMPORTs django
-#*****************************************
+# *****************************************
+# IMPORTs django
+# *****************************************
 from django.contrib import admin
 from rest_framework.authtoken.admin import TokenAdmin
 
-#*****************************************
-#IMPORTs shared
-#*****************************************
+# *****************************************
+# IMPORTs shared
+# *****************************************
 
-#*****************************************
-#IMPORTs app
-#*****************************************
+# *****************************************
+# IMPORTs app
+# *****************************************
 from apps.main import models
 from apps.main import admin_models
 
@@ -44,6 +43,6 @@ admin.site.register(models.IndicatorValuetype)
 
 admin.site.register(models.Link)
 
-admin.site.register(models.Data,admin_models.Admin_Model_Data)
+admin.site.register(models.Data, admin_models.Admin_Model_Data)
 
-TokenAdmin.raw_id_fields = ['user']
+TokenAdmin.raw_id_fields = ["user"]

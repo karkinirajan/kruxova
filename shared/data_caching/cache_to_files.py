@@ -2,39 +2,35 @@
 # imports python
 # ********************
 import json
+
 # ********************
 # imports django
 # ********************
 from django.conf import settings
+
 # ********************
 # imports shared
 # ********************
 from shared.utils import utils_logger
-from shared.legacy_converters import convert_datasource_meta_test,\
-    convert_indicator_meta_data_test,\
-    convert_meta_data_test,\
-    convert_master_sheet,\
-    convert_estimates,\
-    convert_lga
+
 # ********************
 # imports apps
 # ********************
 from apps.main import models as main_models
 from apps.data_caches import models as data_caches_models
 
-def change_status(paran_name,param_status,param_error=None):
-    obj_exists,obj_created=data_caches_models.DataCacheStatus.objects.get_or_create(
+
+def change_status(paran_name, param_status, param_error=None):
+    obj_exists, obj_created = data_caches_models.DataCacheStatus.objects.get_or_create(
         cache_name=paran_name,
         cache_type=data_caches_models.CHOICES_CACHE_TYPE_FILE,
-        defaults={
-            "status":data_caches_models.CHOICES_STATUS_INPROGRESS,
-            "error":None
-        }
+        defaults={"status": data_caches_models.CHOICES_STATUS_INPROGRESS, "error": None},
     )
-    if obj_created==False:
-        obj_exists.status=param_status
-        obj_exists.error=param_error
+    if not obj_created:
+        obj_exists.status = param_status
+        obj_exists.error = param_error
         obj_exists.save()
+
 
 def refresh():
     """
@@ -42,60 +38,48 @@ def refresh():
     existing files
     """
 
-    #run caches in order of time-taken
+    # run caches in order of time-taken
 
-    #=====================================================
-    #REFRESH DATA-CACHE
-    #all_data
-    #=====================================================
+    # =====================================================
+    # REFRESH DATA-CACHE
+    # all_data
+    # =====================================================
     try:
-
-        #SAVE STATUS
+        # SAVE STATUS
         change_status(
-            data_caches_models.CACHE_NAME_ALL_DATA,
-            data_caches_models.CHOICES_STATUS_INPROGRESS
+            data_caches_models.CACHE_NAME_ALL_DATA, data_caches_models.CHOICES_STATUS_INPROGRESS
         )
 
-        #GENERATE CACHE
+        # GENERATE CACHE
 
-        data_retrieved=list(
-            main_models.Data.objects.all().select_related().values(
-                "id",
-                "indicator",
-                "period",
-                "location",
-                "datasource",
-                "value_type",
-                "value"
-            )
+        data_retrieved = list(
+            main_models.Data.objects.all()
+            .select_related()
+            .values("id", "indicator", "period", "location", "datasource", "value_type", "value")
         )
 
         cache_all_data = "{}/{}.json".format(
-            settings.MEDIA_ROOT,
-            data_caches_models.CACHE_NAME_ALL_DATA
+            settings.MEDIA_ROOT, data_caches_models.CACHE_NAME_ALL_DATA
         )
 
-        with open(cache_all_data,"w+") as write_file:
-            json.dump(data_retrieved,write_file)
+        with open(cache_all_data, "w+") as write_file:
+            json.dump(data_retrieved, write_file)
 
-        #free up memory
-        data_retrieved=[]
+        # free up memory
+        data_retrieved = []
 
-        #SAVE STATUS
+        # SAVE STATUS
         change_status(
-            data_caches_models.CACHE_NAME_ALL_DATA,
-            data_caches_models.CHOICES_STATUS_COMPLETED
+            data_caches_models.CACHE_NAME_ALL_DATA, data_caches_models.CHOICES_STATUS_COMPLETED
         )
 
     except Exception as e:
-        #LOG
-        utils_logger.log_print("",str(e),param_oneline=True)
+        # LOG
+        utils_logger.log_print("", str(e), param_oneline=True)
 
-        #SAVE STATUS
+        # SAVE STATUS
         change_status(
-            data_caches_models.CACHE_NAME_ALL_DATA,
-            data_caches_models.CHOICES_STATUS_FAILED,
-            str(e)
+            data_caches_models.CACHE_NAME_ALL_DATA, data_caches_models.CHOICES_STATUS_FAILED, str(e)
         )
 
     """

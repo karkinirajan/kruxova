@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone as django_util_timezone
 from django.contrib.auth import get_user_model
 
 
@@ -139,9 +138,7 @@ class Indicator(models.Model):
     desirable_slope = models.CharField(max_length=255)
     indicator_type = models.CharField(max_length=255)
     program_area = models.CharField(max_length=255)
-    national_target = models.DecimalField(
-        max_digits=8, decimal_places=2, blank=True, null=True
-    )
+    national_target = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     national_source = models.CharField(max_length=255, blank=True, null=True)
     national_information = models.CharField(max_length=255, blank=True, null=True)
     sdg_target = models.CharField(max_length=255, blank=True, null=True)
@@ -213,9 +210,7 @@ class Link(models.Model):
     id = models.AutoField(primary_key=True)
     datasource = models.ForeignKey("Datasource", on_delete=models.DO_NOTHING)
     period = models.CharField(max_length=255, blank=True, null=True)
-    indicator = models.ForeignKey(
-        "Indicator", on_delete=models.DO_NOTHING, blank=True, null=True
-    )
+    indicator = models.ForeignKey("Indicator", on_delete=models.DO_NOTHING, blank=True, null=True)
     link = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
@@ -240,9 +235,7 @@ class Data(models.Model):
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
     def __str__(self):
-        return "ID-{}/CREATED-{}/UPDATED-{}".format(
-            self.id, self.created_at, self.updated_at
-        )
+        return "ID-{}/CREATED-{}/UPDATED-{}".format(self.id, self.created_at, self.updated_at)
 
     class Meta:
         managed = True
@@ -279,9 +272,7 @@ class DisaggregatedData(models.Model):
     value_type = models.ForeignKey("ValueType", on_delete=models.DO_NOTHING)
     value = models.CharField(max_length=255, blank=True, null=True)
     age = models.CharField(max_length=20, null=True, blank=True)
-    gender = models.CharField(
-        max_length=7, choices=GENDER_CHOICES, null=True, blank=True
-    )
+    gender = models.CharField(max_length=7, choices=GENDER_CHOICES, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 

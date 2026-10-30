@@ -1,24 +1,25 @@
-#*****************************************
-#IMPORTs python
-#*****************************************
+# *****************************************
+# IMPORTs python
+# *****************************************
 
-#*****************************************
-#IMPORTs django
-#*****************************************
+# *****************************************
+# IMPORTs django
+# *****************************************
 from rest_framework import serializers
-#*****************************************
-#IMPORTs app
-#*****************************************
+
+# *****************************************
+# IMPORTs app
+# *****************************************
 from apps.user import models as user_models
 
-class UserSerializer(serializers.ModelSerializer):
 
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = user_models.User
-        fields = '__all__'
+        fields = "__all__"
+
 
 class ContactSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = user_models.Contact
-        fields = '__all__'
+        fields = "__all__"

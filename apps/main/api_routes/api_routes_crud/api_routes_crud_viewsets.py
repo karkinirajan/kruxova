@@ -6,27 +6,20 @@
 # IMPORTs django
 # *****************************************
 from django.contrib.auth import get_user_model
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.generics import ListCreateAPIView, DestroyAPIView
 from django.db import connection
-from django.core.cache import cache
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
 from rest_framework.decorators import action
 
 # *****************************************
 # IMPORTs app
 # *****************************************
 # settings
-from core.settings import utils
 
 # models
 from apps.main import models as main_models
-from apps.user import models as user_models
-from apps.subdashboard import models as subdashboard_models
 
 # serializers
 from apps.main.api_routes.api_routes_crud import api_routes_crud_serializers
@@ -58,6 +51,9 @@ UserModel = get_user_model()
 
 
 class UserViewSet(CustomModelViewSet):
+    # account management is staff-only: reads were public and returned password hashes, and any
+    # token holder could overwrite another user's password
+    permission_classes = (IsAdminUser,)
     serializer_class = api_routes_crud_serializers.UserSerializer
     queryset = UserModel.objects.all()
 
@@ -138,10 +134,8 @@ class DatasourceViewSet(CustomModelViewSet):
         try:
             datasource = main_models.Datasource.objects.get(id=pk)
 
-        except:
-            return Response(
-                {"details": "No datasource with the specified id found"}, 400
-            )
+        except Exception:
+            return Response({"details": "No datasource with the specified id found"}, 400)
 
         # store all the years of data from that datasource
         years = set()
@@ -177,7 +171,7 @@ class DatasourceViewSet(CustomModelViewSet):
         """
         try:
             datasource = main_models.Datasource.objects.get(id=pk)
-        except:
+        except Exception:
             return Response({"detail": "Indicator not found"}, status=404)
 
         serializer = api_routes_crud_serializers.IndicatorSerializer(
@@ -210,9 +204,9 @@ class DatasourceSpecificIndicatorViewSet(CustomModelViewSet):
 
 class IndicatorViewSet(CustomModelViewSet):
     serializer_class = api_routes_crud_serializers.IndicatorSerializer
-    queryset = main_models.Indicator.objects.select_related(
-        "factor"
-    ).prefetch_related("datasources", "group")
+    queryset = main_models.Indicator.objects.select_related("factor").prefetch_related(
+        "datasources", "group"
+    )
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ["group"]
 
@@ -223,7 +217,7 @@ class IndicatorViewSet(CustomModelViewSet):
         """
         try:
             indicator = main_models.Indicator.objects.get(id=pk)
-        except:
+        except Exception:
             return Response({"detail": "Indicator not found"}, status=404)
 
         serializer = api_routes_crud_serializers.DatasourceSerializer(
@@ -246,10 +240,8 @@ class IndicatorViewSet(CustomModelViewSet):
         try:
             indicator = main_models.Indicator.objects.get(id=pk)
 
-        except:
-            return Response(
-                {"details": "No indicator with the specified id found"}, 400
-            )
+        except Exception:
+            return Response({"details": "No indicator with the specified id found"}, 400)
 
         # store all the years of data from that indicator
         years = set()
@@ -320,9 +312,7 @@ class DataViewSet(CustomModelViewSet):
 
         # get data objects which have fall within the specified indicators
         print(numerical_indicator_list)
-        data = main_models.Data.objects.filter(
-            indicator__in=numerical_indicator_list
-        )
+        data = main_models.Data.objects.filter(indicator__in=numerical_indicator_list)
         print(data)
         # serialize the queried data
         serializer = api_routes_crud_serializers.DataSerializer(data, many=True)
@@ -348,9 +338,7 @@ class DataViewSet(CustomModelViewSet):
         This is the endpoint for retrieving and creating disaggregation data
         """
         if request.method == "GET":
-            disaggregated_data = (
-                main_models.DisaggregatedData.objects.all().select_related()
-            )
+            disaggregated_data = main_models.DisaggregatedData.objects.all().select_related()
 
             serializer = api_routes_crud_serializers.DisaggregatedDataSerializer(
                 disaggregated_data, many=True
@@ -359,9 +347,7 @@ class DataViewSet(CustomModelViewSet):
             return Response(serializer.data, 200)
 
         # if the request is a post request
-        serializer = api_routes_crud_serializers.DisaggregatedDataSerializer(
-            data=request.data
-        )
+        serializer = api_routes_crud_serializers.DisaggregatedDataSerializer(data=request.data)
 
         if not serializer.is_valid():
             # if the serializer is not valid return a 400 response

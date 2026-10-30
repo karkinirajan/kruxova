@@ -21,7 +21,6 @@ Including another URLconf
 # IMPORTs django
 # *****************************************
 from django.conf import settings
-from rest_framework import routers
 from django.contrib import admin
 from django.urls import path, re_path
 from django.conf.urls import include
@@ -51,9 +50,12 @@ schema_view = get_schema_view(
       Note!! all (POST,PATCH,DELETE,PUT) routes are token protected
       For clients to authenticate use the provided tokens,
       the token key should be included in the Authorization HTTP header.
-      The key should be prefixed by the string literal "Token", with whitespace separating the two strings.
-      For example: Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
-      Example curl -X GET http://127.0.0.1:8000/api/example/ -H 'Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b' """,
+      The key should be prefixed by the string literal "Token",
+      with whitespace separating the two strings.
+      For example: Authorization: Token <your-token>
+      Example:
+      curl -X GET http://127.0.0.1:8000/api/example/
+      -H 'Authorization: Token <your-token>' """,
         # terms_of_service="https://www.google.com/policies/terms/",
         # contact=openapi.Contact(email="contact@snippets.local"),
         # license=openapi.License(name="BSD License"),

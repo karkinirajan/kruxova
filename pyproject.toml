@@ -1,0 +1,40 @@
+[project]
+name = "msdat-api"
+version = "1.0.0"
+description = "MSDAT data API: multi-sectoral indicators (CARD schema) served through DRF with file caches, Celery tasks and an audit trail."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.2,<5.3",
+    "djangorestframework>=3.16",
+    "django-filter>=25",
+    "django-cors-headers>=4.9",
+    "drf-yasg>=1.21.10",
+    "setuptools>=70",  # drf-yasg still imports pkg_resources
+    "celery[redis]>=5.5",
+    "django-celery-results>=2.6",
+    "dj-database-url>=3.1,<4",
+    "psycopg[binary]>=3.3,<4",
+    "whitenoise>=6.12,<7",
+    "pymemcache>=4.0",
+    "gunicorn>=26,<27",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-django>=4.9", "ruff>=0.8"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.settings_test"
+python_files = ["test_*.py"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["*/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# lookup tables of indicator/datasource names; wrapping them hurts readability
+"shared/legacy_converters/*" = ["E501"]

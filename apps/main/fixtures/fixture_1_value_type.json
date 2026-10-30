@@ -1,6 +1,6 @@
 [
     {
-        "model": "apps.main.ValueType",
+        "model": "main.ValueType",
         "pk": 1,
         "fields": {
             "value_type": "Estimate",
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "apps.main.ValueType",
+        "model": "main.ValueType",
         "pk": 2,
         "fields": {
             "value_type": "Value",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "apps.main.ValueType",
+        "model": "main.ValueType",
         "pk": 3,
         "fields": {
             "value_type": "Lower bound",
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "apps.main.ValueType",
+        "model": "main.ValueType",
         "pk": 4,
         "fields": {
             "value_type": "Upper bound",
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "apps.main.ValueType",
+        "model": "main.ValueType",
         "pk": 5,
         "fields": {
             "value_type": "Routine",
@@ -45,7 +45,7 @@
         }
     },
     {
-        "model": "apps.main.ValueType",
+        "model": "main.ValueType",
         "pk": 6,
         "fields": {
              "value_type": "Numerator",
@@ -54,7 +54,7 @@
         }
   },
   {
-      "model": "apps.main.ValueType",
+      "model": "main.ValueType",
         "pk": 7,
         "fields": {
              "value_type": "Denominator",

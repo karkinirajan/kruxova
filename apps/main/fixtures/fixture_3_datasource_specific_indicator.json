@@ -1,6 +1,6 @@
 [
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 1,
         "fields": {
             "datasource_indicator": "Antenatal Care coverage - at least four times by any provider",
@@ -22,7 +22,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 2,
         "fields": {
             "datasource_indicator": "Antenatal care coverage - at least once by skilled health personnel",
@@ -44,7 +44,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 3,
         "fields": {
             "datasource_indicator": "Skilled attendant at delivery",
@@ -66,7 +66,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 4,
         "fields": {
             "datasource_indicator": "Births attended by skilled health staff (% of total)",
@@ -88,7 +88,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 5,
         "fields": {
             "datasource_indicator": "Pregnant women receiving prenatal care (%)",
@@ -110,7 +110,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 6,
         "fields": {
             "datasource_indicator": "Pregnant women receiving prenatal care of at least four visits (% of pregnant women)",
@@ -132,7 +132,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 7,
         "fields": {
             "datasource_indicator": "ANC Coverage (4 Visits)",
@@ -154,7 +154,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 8,
         "fields": {
             "datasource_indicator": "ANC Coverage (1 Visit)",
@@ -176,7 +176,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 9,
         "fields": {
             "datasource_indicator": "Deliveries by skilled birth attendants",
@@ -198,7 +198,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 10,
         "fields": {
             "datasource_indicator": "Skilled Attendance at Delivery or Birth",
@@ -220,7 +220,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 11,
         "fields": {
             "datasource_indicator": "Assistance during delivery from a skilled provider",
@@ -242,7 +242,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 7,
         "fields": {
             "datasource_indicator": "Antenatal visits for pregnancy: 4+ visits",
@@ -264,7 +264,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 13,
         "fields": {
             "datasource_indicator": "Antenatal care from a skilled provider",
@@ -286,7 +286,7 @@
         }
     },
     {
-        "model": "apps.main.DatasourceSpecificIndicator",
+        "model": "main.DatasourceSpecificIndicator",
         "pk": 14,
         "fields": {
             "datasource_indicator": "Antenatal Care Coverage",

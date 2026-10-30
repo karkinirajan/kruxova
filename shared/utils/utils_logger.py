@@ -1,12 +1,13 @@
-#********************************
-#IMPORTS python
-#********************************
-import math
+# ********************************
+# IMPORTS python
+# ********************************
 import pprint
 
-#change this to false to stop the print in where ever it is being used
-ALLOW_PRINT_DEBUG=True
-def log_print(param_title,param_message,param_oneline=False):
+# change this to false to stop the print in where ever it is being used
+ALLOW_PRINT_DEBUG = True
+
+
+def log_print(param_title, param_message, param_oneline=False):
     """
     print debug statements no need to start finding all your debug prints
     to comment them out when you are done
@@ -32,7 +33,7 @@ def log_print(param_title,param_message,param_oneline=False):
             print("======================================================================")
             print("PRINT_DEBUG")
             print("|")
-            print("TITLE : "+param_title)
+            print("TITLE : " + param_title)
             print("|")
             print("---------------------------------------------------------------------")
             print("|")
@@ -42,7 +43,8 @@ def log_print(param_title,param_message,param_oneline=False):
     else:
         pass
 
-def print_prety(param_title,param_message,param_oneline=False):
+
+def print_prety(param_title, param_message, param_oneline=False):
     """
     print wrapper
 
@@ -62,7 +64,7 @@ def print_prety(param_title,param_message,param_oneline=False):
         print("|")
         print("======================================================================")
         print("|")
-        print("TITLE : "+param_title)
+        print("TITLE : " + param_title)
         print("|")
         print("---------------------------------------------------------------------")
         print("|")
